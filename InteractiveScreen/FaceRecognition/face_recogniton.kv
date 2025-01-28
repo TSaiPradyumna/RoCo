@@ -1,0 +1,80 @@
+ScreenManager:
+    HomeScreen:
+    RegisterScreen:
+    RecognizeScreen:
+
+<HomeScreen>:
+    name: "home"
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 20
+        padding: 50
+
+        MDLabel:
+            text: "Face Recognition App"
+            font_style: "H4"
+            halign: "center"
+
+        MDRectangleFlatButton:
+            text: "Register Face"
+            pos_hint: {'center_x': 0.5}
+            on_release: app.root.current = "register"
+
+        MDRectangleFlatButton:
+            text: "Recognize Face"
+            pos_hint: {'center_x': 0.5}
+            on_release: app.root.current = "recognize"
+
+<RegisterScreen>:
+    name: "register"
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 20
+        padding: 50
+
+        MDLabel:
+            text: "Register New Face"
+            font_style: "H5"
+            halign: "center"
+
+        MDRectangleFlatButton:
+            text: "Capture Face"
+            pos_hint: {'center_x': 0.5}
+            on_release: root.capture_face()
+
+        MDLabel:
+            id: status
+            text: ""
+            halign: "center"
+
+        MDRectangleFlatButton:
+            text: "Back"
+            pos_hint: {'center_x': 0.5}
+            on_release: app.root.current = "home"
+
+<RecognizeScreen>:
+    name: "recognize"
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 20
+        padding: 50
+
+        MDLabel:
+            text: "Face Recognition"
+            font_style: "H5"
+            halign: "center"
+
+        MDRectangleFlatButton:
+            text: "Recognize Face"
+            pos_hint: {'center_x': 0.5}
+            on_release: root.recognize_face()
+
+        MDLabel:
+            id: status
+            text: ""
+            halign: "center"
+
+        MDRectangleFlatButton:
+            text: "Back"
+            pos_hint: {'center_x': 0.5}
+            on_release: app.root.current = "home"
